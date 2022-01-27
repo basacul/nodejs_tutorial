@@ -1,8 +1,5 @@
 # Readme
-Udemy course "The Complete Node.js Developer Course" on goorm.io: ubuntu 18.04 and node .
-
-
-This Readme file was created to document my progress along the Udemy course "The Complete Node.js Developer Course". The lessons learned from this course are incorporated into my own project.
+Udemy course "The Complete Node.js Developer Course" on goorm.io: ubuntu 18.04 and node v16.13.2.
 
 ## Section 1 Introduction
 
@@ -29,6 +26,10 @@ The engine runs on chrome and node, but both may have different attributes and c
 
 At npmhs.com you can find tons of packages to help you build and create.
 
-## Section 3 Node.js Module System (Notes App)
+## Sections 3 and 4: Notes App
 
-Decision to continue working on goorm.io
+The node module system is necessary to work with the file system with synchronous and asynchronous approaches. The folder ./notes_app includes code from this section.
+
+[Documentation on file system](https://nodejs.org/dist/latest-v16.x/docs/api/fs.html)
+
+### 
