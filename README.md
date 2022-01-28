@@ -26,10 +26,21 @@ The engine runs on chrome and node, but both may have different attributes and c
 
 At npmhs.com you can find tons of packages to help you build and create.
 
-## Sections 3 and 4: Notes App
+## Sections 3, 4 and 5: Notes App
 
 The node module system is necessary to work with the file system with synchronous and asynchronous approaches. The folder ./notes_app includes code from this section.
 
 [Documentation on file system](https://nodejs.org/dist/latest-v16.x/docs/api/fs.html)
 
-### 
+### Require
+
+You can define variables and functions in one file. "module.exports" helps you export definitions in one to another by stating "require" in the desired file.
+````
+// utils.js
+...
+module.exports = ...
+...
+// app.js
+require('.../utils.js');
+````
+Via "npm init" you generate a package.json file, where you need to apply double quotes for the variables.
