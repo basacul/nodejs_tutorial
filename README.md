@@ -48,3 +48,5 @@ Via "npm init" you generate a package.json file, where you need to apply double 
 By the way, so far, node does not support the ES6 syntax "import something from 'something'", if the instructor is correct.
 
 If a package.json with the needed dependencies exist, with command "npm install" all necessary packages are installed.
+
+"npm install package@X.X.X -g" installs a package globally and not listed in the package files.
