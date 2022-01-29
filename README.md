@@ -50,3 +50,28 @@ By the way, so far, node does not support the ES6 syntax "import something from 
 If a package.json with the needed dependencies exist, with command "npm install" all necessary packages are installed.
 
 "npm install package@X.X.X -g" installs a package globally and not listed in the package files.
+
+"process.argv" represents an array with two fix values and further arguments
+1. Path to node
+2. Path to app.js
+3. Further passed arguments
+````
+root@goorm:/anyfolder# node app Whatever1 Whatever2
+[ 
+  '/usr/bin/node',
+  '/workspace/nodejs_tutorial/notes_app/app',
+  'Whatever1',
+  'Whatever2'
+]
+````
+There exists the package "yargs" that provides useful features and allows me to avoid to implement the needed features.
+````
+// node app list
+yargs.command({
+	command: 'list',
+	describe: 'List the notes.',
+	handler: function(){
+		....
+	}
+});
+````
