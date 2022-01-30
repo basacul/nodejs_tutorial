@@ -26,12 +26,14 @@ The engine runs on chrome and node, but both may have different attributes and c
 
 At npmhs.com you can find tons of packages to help you build and create.
 
-## Sections 3, 4 and 5: Notes App
+## Notes App: Sections 3, 4 and 5:
 
 The node module system is necessary to work with the file system with synchronous and asynchronous approaches. The folder ./notes_app includes code from this section.
 
 [Documentation on file system](https://nodejs.org/dist/latest-v16.x/docs/api/fs.html)
-
+[Documentation on chalk](https://github.com/chalk/chalk)
+[Documentation on yargs](https://github.com/yargs/yargs)
+[Documentation on node inspect](https://nodejs.org/api/inspector.html)
 ### Require
 
 You can define variables and functions in one file. "module.exports" helps you export definitions in one to another by stating "require" in the desired file.
@@ -43,6 +45,8 @@ module.exports = ...
 // app.js
 require('.../utils.js');
 ````
+
+### Basic information
 Via "npm init" you generate a package.json file, where you need to apply double quotes for the variables. JSON requires double quotes.
 
 By the way, so far, node does not support the ES6 syntax "import something from 'something'", if the instructor is correct.
@@ -76,6 +80,7 @@ yargs.command({
 });
 ````
 
+### Arrow function
 Arrow function does not bind the value of this such as:
 ````
 const event = {
@@ -100,7 +105,15 @@ const event = {
 	}
 };
 ````
+
+### Debugging
 In case I run into errors, there are basic tools, I could use such as
 ````
 1. console.log(variableName);
 2. debugger: needs to be added at a specific place in your code and in the terminal run "node inspect applicationName arg1 ...". But you need to inspect on chrome with dev tools enabled :-(.
+````
+
+## Weather App: Sections 6, 7, 8 and 9
+The node module system is necessary to work with the file system with synchronous and asynchronous approaches. The folder ./weather_app includes code from these sections.
+
+[Documentation on file system](https://nodejs.org/dist/latest-v16.x/docs/api/fs.html)
