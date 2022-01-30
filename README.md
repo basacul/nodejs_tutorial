@@ -75,3 +75,28 @@ yargs.command({
 	}
 });
 ````
+
+Arrow function does not bind the value of this such as:
+````
+const event = {
+	name: 'Birthday Party',
+	printGuestList: () => { console.log(`Guest list for ${this.name}`);}
+};
+````
+but the following resolves this
+````
+const event = {
+	name: 'Birthday Party',
+	printGuestList(){ console.log(`Guest list for ${this.name}`);}
+};
+````
+Funny enough, if an array is defined and you use forEach, then it is not bound for each value - you don't need this in this case - such as
+`````
+const event = {
+	name: 'Birthday Party',
+	guestList: ['Andrew', 'Jenn', 'Mike'],
+	printGuestList(){ 
+		this.guestList.forEach(guest => console.log(`${guest} is attending ${this.name}`));
+	}
+};
+````

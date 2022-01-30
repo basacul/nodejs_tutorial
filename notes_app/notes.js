@@ -2,17 +2,23 @@ const fs = require('fs');
 const chalk = require('chalk');
 const success = chalk.green.inverse;
 const error = chalk.red.inverse;
+const inverse = chalk.inverse;
 
 const getNotes = function(){
 	return 'Your notes...';
 }
 
-const addNote = function(title, body){
+const listNotes = () => {
 	const notes = loadNotes();
+	console.log(inverse('Your list includes the following titles:'));
+	notes.forEach(note => console.log(`- ${note.title}`));
+};
+
+const addNote = (title, body) => {
+	const notes = loadNotes();
+	const duplicateNote = notes.find(note => note.title === title);
 	
-	const duplicateNotes = notes.filter(note => {return note.title === title;});
-	
-	if(duplicateNotes.length <= 0){
+	if(!duplicateNote){
 		notes.push({
 			title: title,
 			body: body
@@ -26,12 +32,10 @@ const addNote = function(title, body){
 	saveNotes(notes);
 }
 
-const removeNote = function(title){
+const removeNote = (title) => {
 	const notes = loadNotes();
 
-	const filteredNotes = notes.filter(note => { 
-		return note.title !== title	
-	});
+	const filteredNotes = notes.filter(note => note.title !== title );
 		
 	if(filteredNotes.length < notes.length){
 		console.log(success(`Note with the title "${title}" has been removed.`));
@@ -42,13 +46,24 @@ const removeNote = function(title){
 	saveNotes(filteredNotes);
 }
 
+const readNote = function(title){
+	const notes = loadNotes();
+	const note = notes.find(note => note.title === title);
+	if(note){
+		console.log(inverse(title));
+		console.log(note.body);
+	}else{
+		console.log(error(`There is no note with the title "${title}".`))
+	}
+
+}
 // takes as argument the array of objects
-const saveNotes = function(notes){
+const saveNotes = (notes) => {
 	fs.writeFileSync('./notes.json', JSON.stringify(notes));
 }
 
 // reads the notes.json file an return an array of objects
-const loadNotes = function(){
+const loadNotes = () => {
 	try{
 		const dataBuffer = fs.readFileSync('./notes.json'); // represents binary
 		return JSON.parse(dataBuffer.toString());
@@ -61,6 +76,8 @@ const loadNotes = function(){
 
 module.exports = {
 	getNotes: getNotes,
+	listNotes: listNotes,
+	readNote: readNote,
 	addNote: addNote,
 	removeNote: removeNote
 };
