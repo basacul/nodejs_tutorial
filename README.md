@@ -68,6 +68,8 @@ root@goorm:/anyfolder# node app Whatever1 Whatever2
   'Whatever2'
 ]
 ````
+
+### Yargs
 There exists the package "yargs" that provides useful features and allows me to avoid to implement the needed features.
 ````
 // node app list
@@ -116,4 +118,38 @@ In case I run into errors, there are basic tools, I could use such as
 ## Weather App: Sections 6, 7, 8 and 9
 The node module system is necessary to work with the file system with synchronous and asynchronous approaches. The folder ./weather_app includes code from these sections.
 
-[Documentation on file system](https://nodejs.org/dist/latest-v16.x/docs/api/fs.html)
+- [Documentation on file system](https://nodejs.org/dist/latest-v16.x/docs/api/fs.html)
+
+### Asynchronous Basics
+setTimeout allows me to specify when a function is called, but it can also habe some weird behavior such as this:
+````
+console.log('Starting');
+
+
+setTimeout(() => {
+	console.log('2 Second Timer.');
+}, 2000);
+
+
+setTimeout(() => {
+	console.log('0 Second Timer');
+}, 0);
+
+console.log('Stopping');
+
+OUTPUT:
+Starting
+Stopping
+0 Second Timer
+2 Second Timer.
+````
+The reason for this behavior is explained in the next subsection.
+
+### Call Stack, Callback Queue and Event Loop
+Watch this video again, when you are done with the weather app in order to recap the content.
+
+setTimeout is not a javascript implementation, but in C++. Thus setTimeout is registered in the Node API, while the items in the stack are executed (because node is non-blocking).
+When main is removed from the stack, setTimeout(..., 0) is added onto the stack. Because console.log('Stopping') is added on top of, it is executed before setTimeout(..., 0).
+The callback queue checks what is ready to be executed in the Node API and adds setTimeout(..., 0),iff the main is done and consequently the stack is empty.
+
+script -> call stack -> node api -> callback queue -> call stack -> ... -> main is done --> items of callback added to the stack --> execution of setTimeout(..., 0) --> ... -> execution of setTimeout(..., 2000)
