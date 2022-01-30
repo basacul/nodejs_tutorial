@@ -91,7 +91,7 @@ const event = {
 };
 ````
 Funny enough, if an array is defined and you use forEach, then it is not bound for each value - you don't need this in this case - such as
-`````
+````
 const event = {
 	name: 'Birthday Party',
 	guestList: ['Andrew', 'Jenn', 'Mike'],
@@ -100,3 +100,7 @@ const event = {
 	}
 };
 ````
+In case I run into errors, there are basic tools, I could use such as
+````
+1. console.log(variableName);
+2. debugger: needs to be added at a specific place in your code and in the terminal run "node inspect applicationName arg1 ...". But you need to inspect on chrome with dev tools enabled :-(.
