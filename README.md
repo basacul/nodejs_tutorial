@@ -30,10 +30,10 @@ At npmhs.com you can find tons of packages to help you build and create.
 
 The node module system is necessary to work with the file system with synchronous and asynchronous approaches. The folder ./notes_app includes code from this section.
 
-[Documentation on file system](https://nodejs.org/dist/latest-v16.x/docs/api/fs.html)
-[Documentation on chalk](https://github.com/chalk/chalk)
-[Documentation on yargs](https://github.com/yargs/yargs)
-[Documentation on node inspect](https://nodejs.org/api/inspector.html)
+- [Documentation on file system](https://nodejs.org/dist/latest-v16.x/docs/api/fs.html)  
+- [Documentation on chalk](https://github.com/chalk/chalk)  
+- [Documentation on yargs](https://github.com/yargs/yargs)  
+- [Documentation on node inspect](https://nodejs.org/api/inspector.html)  
 ### Require
 
 You can define variables and functions in one file. "module.exports" helps you export definitions in one to another by stating "require" in the desired file.
@@ -95,7 +95,7 @@ const event = {
 	printGuestList(){ console.log(`Guest list for ${this.name}`);}
 };
 ````
-Funny enough, if an array is defined and you use forEach, then it is not bound for each value - you don't need this in this case - such as
+Funny enough, if an array is defined and you use forEach, then it is not bound to each value - you don't need "this" for each value - such as
 ````
 const event = {
 	name: 'Birthday Party',
