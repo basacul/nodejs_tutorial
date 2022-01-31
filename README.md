@@ -159,5 +159,5 @@ script -> call stack -> node api -> callback queue -> call stack -> ... -> main 
 ### HTTP Request: Weatherstack
 Along these sections we will use the following query on api.weatherstack.com with the deprecated package *request*
 ````
-http://api.weatherstack.com/current?access_key=MYAPIKEAY&query=37.8267,-122.4233
+http://api.weatherstack.com/current?access_key=MYAPIKEAY&query=37.8267,-122.4233&units=m|f|s
 ````
