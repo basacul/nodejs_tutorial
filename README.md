@@ -118,7 +118,9 @@ In case I run into errors, there are basic tools, I could use such as
 ## Weather App: Sections 6, 7, 8 and 9
 The node module system is necessary to work with the file system with synchronous and asynchronous approaches. The folder ./weather_app includes code from these sections.
 
-- [Documentation on file system](https://nodejs.org/dist/latest-v16.x/docs/api/fs.html)
+- [Weatherstack - Real-Time World Weather REST API](https://weatherstack.com/)
+- [Documentation on npm package request - deprecated!](https://www.npmjs.com/package/request) 
+- [Documentation on npm package postman-request - forked from request and maintained](https://www.npmjs.com/package/postman-request) 
 
 ### Asynchronous Basics
 setTimeout allows me to specify when a function is called, but it can also habe some weird behavior such as this:
@@ -153,3 +155,9 @@ When main is removed from the stack, setTimeout(..., 0) is added onto the stack.
 The callback queue checks what is ready to be executed in the Node API and adds setTimeout(..., 0),iff the main is done and consequently the stack is empty.
 
 script -> call stack -> node api -> callback queue -> call stack -> ... -> main is done --> items of callback added to the stack --> execution of setTimeout(..., 0) --> ... -> execution of setTimeout(..., 2000)
+
+### HTTP Request: Weatherstack
+Along these sections we will use the following query on api.weatherstack.com with the deprecated package *request*
+````
+http://api.weatherstack.com/current?access_key=MYAPIKEAY&query=37.8267,-122.4233
+````
