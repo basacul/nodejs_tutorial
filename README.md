@@ -119,6 +119,7 @@ In case I run into errors, there are basic tools, I could use such as
 The node module system is necessary to work with the file system with synchronous and asynchronous approaches. The folder ./weather_app includes code from these sections.
 
 - [Weatherstack - Real-Time World Weather REST API](https://weatherstack.com/)
+- [Maps, geocoding and navigation APIs & SDKs | Mapbox](https://www.mapbox.com/)
 - [Documentation on npm package request - deprecated!](https://www.npmjs.com/package/request) 
 - [Documentation on npm package postman-request - forked from request and maintained](https://www.npmjs.com/package/postman-request) 
 
