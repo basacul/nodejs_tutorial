@@ -162,3 +162,9 @@ Along these sections we will use the following query on api.weatherstack.com wit
 ````
 http://api.weatherstack.com/current?access_key=MYAPIKEAY&query=37.8267,-122.4233&units=m|f|s
 ````
+With the api of mapbox we can fetch the coordinates by a given city. 
+
+### Handling Errors
+There is the issue, where there is no internet connection. In this case you would not get an error, why you should test the response as well - what I already did.
+
+I should pay attention, that the url is correctly spelled and I pass all the necessary arguments. Otherwise, the data I retrieve might be undefined. Thus catch those errors as well.
