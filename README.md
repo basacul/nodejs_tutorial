@@ -168,3 +168,44 @@ With the api of mapbox we can fetch the coordinates by a given city.
 There is the issue, where there is no internet connection. In this case you would not get an error, why you should test the response as well - what I already did.
 
 I should pay attention, that the url is correctly spelled and I pass all the necessary arguments. Otherwise, the data I retrieve might be undefined. Thus catch those errors as well.
+
+### Callback Function
+Not all callback functions are asychronous such as setTimeout, a node provided api. Callback functions such as filter (a plain javascript function) are synchronous.
+
+By using callback functions I can resolve the problem of undefined variables, because main needs to finish before the callback function returns a value: 
+````
+onst geocode = (address, callback) => {
+	setTimeout(() => {
+		const data = {
+		latitude: 0,
+		longitude: 0
+		};
+	
+		return data;
+	}, 2000);
+};
+
+const data = geocode('Philadelphia');
+console.log(data);
+// output undefined
+````
+
+By using callback functions appropriately we resolve the issue of undefined variables. By simply calling the callback ;-).
+````
+// solution
+const geocode = (address, callback) => {
+	setTimeout(() => {
+		const data = {
+		latitude: 0,
+		longitude: 0
+		};
+	
+		callback(data);
+	}, 2000);
+};
+
+geocode('Philadelphia', (data) => {
+	console.log(data)
+});
+````
+kjlas
