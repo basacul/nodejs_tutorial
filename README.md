@@ -208,4 +208,4 @@ geocode('Philadelphia', (data) => {
 	console.log(data)
 });
 ````
-kjlas
+The way I solved the problem creates too many nested blocks and there are better solutions.
