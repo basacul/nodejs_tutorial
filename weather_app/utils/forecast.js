@@ -4,13 +4,13 @@ const urlWeatherStack = `http://api.weatherstack.com/current?access_key=${access
 
 const forecast = (latitude, longitude, callback) => {
 
-	const url = `http://api.weatherstack.com/current?access_key=4eb0b13f2e2b030bfaf2a69f55f3ede9&query=${latitude},${longitude}&units=m`;
+	const url = `${urlWeatherStack}${latitude},${longitude}&units=m`;
 
 	request({url:url, json: true}, (error, response) => {
 		if(error){
-			callback(error, undefined);
+			callback('Unable to connect to weather service.', undefined);
 		}else if(response.body.error){
-			callback(response.body.error, undefined);
+			callback('Unable to find location.', undefined);
 		}else{
 			const { temperature, weather_descriptions, feelslike } = response.body.current;
 

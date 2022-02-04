@@ -208,4 +208,22 @@ geocode('Philadelphia', (data) => {
 	console.log(data)
 });
 ````
-The way I solved the problem creates too many nested blocks and there are better solutions.
+The way I solved the problem creates too many nested blocks and there are better solutions. The solution consists in externalizing a lot of code in other places, such that I get
+````
+const geocode = require('./utils/geocode.js');
+const forecast = require('./utils/forecast.js');
+
+geocode('Zurich', (error, data) => {
+	// console.log('Error', error); // for testing
+	// console.log('Data', data);
+	if(error){
+		console.log(error);
+	}
+	forecast(data.latitude, data.longitude, (error, response) => {
+  		
+  		console.log(`${data.location}. ${response}`);
+	});
+});
+
+````
+
