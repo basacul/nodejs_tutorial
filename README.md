@@ -227,3 +227,44 @@ geocode('Zurich', (error, data) => {
 
 ````
 
+### ES6
+Destructuring works also as arguments in function definitions.
+````
+// Object property shorthand
+
+const name = 'Andrew';
+const age = 27;
+
+// attribute name must be equal to the variable I defined
+const user = {
+	name,
+	age,
+	location: 'Philadelphia'
+}
+
+console.log(user);
+#output: { name: 'Andrew', age: 27, location: 'Philadelphia' }
+
+// Object destructuring
+
+const product = {
+	label: 'Red notebook',
+	price: 3,
+	stock: 201,
+	salePrice: undefinded
+};
+
+// rating does not exist, if it exists then the default is not used!
+const { label:productlabel, stock, rating = 5 } = product;
+console.log(productlabel, stock, rating);
+#output: Red notebook 201 undefined
+
+const transaction = (type, { label, stock }) => {
+	console.log(type, label, stock);
+};
+
+transaction('order', product);
+#output: order Red notebook 201
+````
+
+
