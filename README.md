@@ -122,6 +122,9 @@ The node module system is necessary to work with the file system with synchronou
 - [Maps, geocoding and navigation APIs & SDKs | Mapbox](https://www.mapbox.com/)
 - [Documentation on npm package request - deprecated!](https://www.npmjs.com/package/request) 
 - [Documentation on npm package postman-request - forked from request and maintained](https://www.npmjs.com/package/postman-request) 
+- [HTTP | Node.js v15.14.0 Documentation](https://nodejs.org/docs/latest-v15.x/api/http.html) 
+- [HTTPS | Node.js v15.14.0 Documentation](https://nodejs.org/docs/latest-v15.x/api/https.html) 
+
 
 ### Asynchronous Basics
 setTimeout allows me to specify when a function is called, but it can also habe some weird behavior such as this:
@@ -267,4 +270,30 @@ transaction('order', product);
 #output: order Red notebook 201
 ````
 
+### HTTP requests without a library
+There are two core modules in node: HTTP, HTTPS and can be used to set up the server. 
+````
+const http = require('http');
 
+const url = ....
+
+const request = http.request(url, (response) => {
+	let data = '';
+	
+	// fires when data comes in
+	response.on('data', (chunk) => {
+		data += chunk.toString();
+	});
+	
+	// when finished
+	response.on('end', () => {
+		const body = JSON.parse(data);
+		console.log(body);
+	});
+});
+
+request.on('error', (error) => {
+	console.log('An error', error);
+});
+request.end();
+````
