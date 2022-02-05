@@ -11,15 +11,15 @@ if(argumentsMapbox.length > 0){
 		query += `${argument} `
 	});
 	query = query.substring(0, query.length - 1);
-	geocode(query, (error, data) => {
+	geocode(query, (error, data = {}) => {
 		// console.log('Error', error); // for testing
 		// console.log('Data', data);
 		if(error){
 			console.log(error);
 		}
-		forecast(data.latitude, data.longitude, (error, response) => {
+		forecast(data, (error, response) => {
 
-			console.log(`${data.location}. ${response}`);
+			console.log(response);
 		});
 	});
 } else {

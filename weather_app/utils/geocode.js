@@ -5,16 +5,17 @@ const access_tokenMapbox = "pk.eyJ1IjoiYmFzYWN1bCIsImEiOiJja3o0bXUydmMwNXJvMm5xd
 const geocode = (address, callback) => {
 	const url = `${urlMapbox}${encodeURIComponent(address)}.json?access_token=${access_tokenMapbox}&limit=1`;
 
-	request({url: url, json: true}, (error, response) => {
+	request({url, json: true}, (error, { body }) => {
 		if(error){
 			callback('Unable to connect to locations services.', undefined);
-		}else if(response.body.features.length === 0){
+		}else if(body.features.length === 0){
 			callback('Unable to find location. Try another search', undefined);
 		}else{
+			const { place_name, center } = body.features[0];
 			callback(undefined, {
-				latitude: response.body.features[0].center[1],
-				longitude: response.body.features[0].center[0],
-				location: response.body.features[0].place_name
+				latitude: center[1],
+				longitude: center[0],
+				location: place_name
 			});
 		}
 	});
