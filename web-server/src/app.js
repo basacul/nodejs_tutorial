@@ -1,23 +1,38 @@
+const path = require('path');
 const express = require('express');
 
+// console.log(__dirname);
+// console.log(path.join(__dirname, '../public'));
+
 const app = express();
+
 const port = 3000;
 const url = 'https://nodejs-tutorial-isyzm.run-eu-central1.goorm.io';
+const publicDirectoryPath = path.join(__dirname, '../public');
+app.use(express.static(publicDirectoryPath));
 
-app.get('/', (req, res) => {
-	res.send('Welcome to my site.');
+// Due to set up index.html, about and help pages these functions are not called anymore
+/* app.get('/', (req, res) => {
+	res.send('<h1>Weather</h1>');
 });
 
 app.get('/help', (req, res) => {
-	res.send('Unfortunately, I cannot help you...');
+	res.send([{
+		name: 'Andrew'
+	},{
+		name: 'Susan'
+	}]);
 });
 
 app.get('/about', (req, res) => {
-	res.send('There is nothing to tell about this site, yet...');	
+	res.send('<h1>About</h1>');	
 });
-
+*/
 app.get('/weather', (req, res) => {
-	res.send('Welcome to the weather api.');
+	res.send({
+		location: 'Zurich, Switzerland.',
+		forecast: 'Gray and cold...'
+	});
 });
 
 app.listen(port, () => {

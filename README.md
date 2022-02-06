@@ -125,6 +125,7 @@ The node module system is necessary to work with the file system with synchronou
 - [HTTP | Node.js v15.14.0 Documentation](https://nodejs.org/docs/latest-v15.x/api/http.html) 
 - [HTTPS | Node.js v15.14.0 Documentation](https://nodejs.org/docs/latest-v15.x/api/https.html) 
 - [Express - Node.js web application framework](http://expressjs.com/)
+- [Path | Node.js v16.13.2 Documentation](https://nodejs.org/dist/latest-v16.x/docs/api/path.html)
 
 ### Asynchronous Basics
 setTimeout allows me to specify when a function is called, but it can also habe some weird behavior such as this:
