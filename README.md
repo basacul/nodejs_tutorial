@@ -124,7 +124,7 @@ The node module system is necessary to work with the file system with synchronou
 - [Documentation on npm package postman-request - forked from request and maintained](https://www.npmjs.com/package/postman-request) 
 - [HTTP | Node.js v15.14.0 Documentation](https://nodejs.org/docs/latest-v15.x/api/http.html) 
 - [HTTPS | Node.js v15.14.0 Documentation](https://nodejs.org/docs/latest-v15.x/api/https.html) 
-
+- [Express - Node.js web application framework](http://expressjs.com/)
 
 ### Asynchronous Basics
 setTimeout allows me to specify when a function is called, but it can also habe some weird behavior such as this:
@@ -297,3 +297,5 @@ request.on('error', (error) => {
 });
 request.end();
 ````
+### Express
+Express is simply a function.
