@@ -126,6 +126,8 @@ The node module system is necessary to work with the file system with synchronou
 - [HTTPS | Node.js v15.14.0 Documentation](https://nodejs.org/docs/latest-v15.x/api/https.html) 
 - [Express - Node.js web application framework](http://expressjs.com/)
 - [Path | Node.js v16.13.2 Documentation](https://nodejs.org/dist/latest-v16.x/docs/api/path.html)
+- [handlebars - npm](https://www.npmjs.com/package/handlebars)
+- [hbs - npm](https://www.npmjs.com/package/hbs)
 
 ### Asynchronous Basics
 setTimeout allows me to specify when a function is called, but it can also habe some weird behavior such as this:
@@ -299,4 +301,12 @@ request.on('error', (error) => {
 request.end();
 ````
 ### Express
-Express is simply a function.
+Express is simply a function and acts as a server.
+
+### Templating tools
+hbs useses handlebars behind the scenes and makes it very easy to integrate it with express.
+````
+// this is all we need
+app.set('view engine', 'hbs');
+````
+And create a folder views, where all such content goes into it.
