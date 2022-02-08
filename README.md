@@ -310,3 +310,19 @@ hbs useses handlebars behind the scenes and makes it very easy to integrate it w
 app.set('view engine', 'hbs');
 ````
 And create a folder views, where all such content goes into it.
+
+We can customize the way and place the handlebars are configured. Usually express looks for the folder views, but the directory name can be customized. You need to tell express, where to look, if the folder name is something else than views.
+````
+const viewsPath = path.join(__dirname, '../templates');
+
+app.set('view engine', 'hbs');
+app.set('views', viewsPath); // the path to the views (in this case templates folder) is now explicitly defined
+````
+With partials you can reuse structures in several pages and allows you to avoid copy markups to several sites.
+````
+const hbs = require('hbs');
+const partialsPath = path.join(__dirname, '../templates/partials');
+...
+hbs.registerPartials(partialsPath);
+````
+
