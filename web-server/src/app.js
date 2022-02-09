@@ -22,23 +22,23 @@ app.use(express.static(publicDirectoryPath));
  app.get('/', (req, res) => {
 	// renders views/index.hbs
 	res.render('index', {
-		title: 'Weather App',
-		name: 'Andrew'
+		title: 'Weather',
+		name: 'Geisha'
 	});	
 });
 
 app.get('/help', (req, res) => {
 	res.render('help', {
 		title: 'Help',
-		name: 'Andrew',
+		name: 'Geisha',
 		message: "On ths site you won't find much help, yet."
 	});
 });
 
 app.get('/about', (req, res) => {
 	res.render('about', {
-		title: 'About',
-		name: 'Goorm' 
+		title: 'About Me',
+		name: 'Geisha' 
 	});	
 });
 
@@ -52,7 +52,7 @@ app.get('/weather', (req, res) => {
 app.get('/help/*', (req, res) => {
 	res.render('404', {
 		title: 'Help',
-		name: 'Andrew',
+		name: 'Geisha',
 		message: "Help article not found."
 	});
 });
