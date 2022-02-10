@@ -1,3 +1,5 @@
+const geocode = require('./utils/geocode.js');
+const forecast = require('./utils/forecast.js');
 const path = require('path');
 const express = require('express');
 const hbs = require('hbs');
@@ -49,11 +51,26 @@ app.get('/weather', (req, res) => {
 		})
 	}
 	
-	res.send({
-		location: 'Zurich',
-		forecast: 'Gray and cold...',
-		address: req.query.address
+	geocode(req.query.address, (error, data = {}) => {
+		// console.log('Error', error); // for testing
+		// console.log('Data', data);
+		if(error){
+			return res.send({ error });
+		}
+		
+		forecast(data, (error, response) => {
+			if(error){
+				return res.send({ error	});
+			}
+			
+			res.send({
+				forecast: response,
+				location: data.location, 
+				address: req.query.address
+			});
+		});
 	});
+
 });
 
 // by return you stop the code afterwards and is a common approach in express
