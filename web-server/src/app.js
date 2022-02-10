@@ -43,9 +43,29 @@ app.get('/about', (req, res) => {
 });
 
 app.get('/weather', (req, res) => {
+	if(!req.query.address){
+		return res.send({
+			error: 'You must provide an address.'
+		})
+	}
+	
 	res.send({
-		location: 'Zurich, Switzerland.',
-		forecast: 'Gray and cold...'
+		location: 'Zurich',
+		forecast: 'Gray and cold...',
+		address: req.query.address
+	});
+});
+
+// by return you stop the code afterwards and is a common approach in express
+app.get('/products', (req, res) => {
+	if(!req.query.search){
+		return res.send({
+			error: 'You mus provide a search term'
+		})
+	}
+	console.log(req.query);
+	res.send({
+		products: []
 	});
 });
 

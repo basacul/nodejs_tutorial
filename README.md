@@ -325,4 +325,9 @@ const partialsPath = path.join(__dirname, '../templates/partials');
 ...
 hbs.registerPartials(partialsPath);
 ````
-
+### Querying
+With request.query you get a json object with the the query when performing a querying via url. This is performed by express.
+````
+....com?seach=games&rating=5
+console.log(request.query);
+#output: {search: 'games', rating: '5'}
