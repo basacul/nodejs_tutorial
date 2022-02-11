@@ -128,6 +128,7 @@ The node module system is necessary to work with the file system with synchronou
 - [Path | Node.js v16.13.2 Documentation](https://nodejs.org/dist/latest-v16.x/docs/api/path.html)
 - [handlebars - npm](https://www.npmjs.com/package/handlebars)
 - [hbs - npm](https://www.npmjs.com/package/hbs)
+- [Fetch API - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
 
 ### Asynchronous Basics
 setTimeout allows me to specify when a function is called, but it can also habe some weird behavior such as this:
@@ -331,3 +332,17 @@ With request.query you get a json object with the the query when performing a qu
 ....com?seach=games&rating=5
 console.log(request.query);
 #output: {search: 'games', rating: '5'}
+````
+
+### ES6 Default Function Parameters
+Instead of checking if arguments are initialized, you can give arguments default values, such as
+````
+const greeter = (name='User', { label, stock = 0} = {}) => {
+	console.log('Hello', name, label, stock);
+};
+
+greeter();
+#output: 'Hello User undefined 0'
+````
+For destructuring objects, you should know, that an error is thrown, when no argument is passed. That's why you need an empty object or something similar.
+
